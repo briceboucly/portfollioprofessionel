@@ -1,27 +1,65 @@
-body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #f9f9f9;
-    color: #222;
+:root {
+    --primary-blue: #2361a9;
+    --primary-blue-dark: #1a467a;
+    --primary-blue-light: #e6f0fa;
+    --accent-blue: #4ba3fa;
+    --white: #ffffff;
+    --grey: #f7f9fb;
+    --grey-dark: #bfc9d5;
+    --border-radius: 10px;
+    --transition: 0.2s cubic-bezier(.4,0,.2,1);
+}
+
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
 }
 
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--grey);
+    color: var(--primary-blue-dark);
+    min-height: 100vh;
+}
+
 header {
-    background: #2b354a;
-    color: #fff;
-    padding: 40px 0 20px 0;
+    background: linear-gradient(120deg, var(--primary-blue), var(--primary-blue-dark));
+    color: var(--white);
+    padding: 48px 0 28px 0;
     text-align: center;
+    box-shadow: 0 6px 24px rgba(35,97,169,0.13);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.2em;
+    letter-spacing: 1px;
+}
+
+header h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin: 0.2em 0 1em 0;
+    color: var(--accent-blue);
+}
+
+header p {
+    font-size: 1.1rem;
+    color: var(--white);
+    opacity: 0.9;
 }
 
 .container {
-    width: 90%;
-    max-width: 900px;
+    width: 92%;
+    max-width: 880px;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 22px 0;
 }
 
 nav {
-    background: #404c6b;
+    background: var(--primary-blue-dark);
+    box-shadow: 0 2px 8px rgba(35,97,169,0.05);
 }
 
 nav ul {
@@ -29,92 +67,129 @@ nav ul {
     margin: 0;
     padding: 0;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
 }
 
 nav ul li {
     display: inline-block;
-    margin: 0 20px;
 }
 
 nav ul li a {
-    color: #fff;
+    color: var(--white);
     text-decoration: none;
     font-weight: 600;
     font-size: 1.1em;
-    padding: 15px 0;
-    display: inline-block;
-    transition: color 0.2s;
+    padding: 16px 10px;
+    border-radius: var(--border-radius);
+    transition: background var(--transition), color var(--transition);
+    display: block;
 }
 
-nav ul li a:hover {
-    color: #e9bc3f;
+nav ul li a:hover,
+nav ul li a:focus,
+nav ul li a.active {
+    background: var(--accent-blue);
+    color: var(--primary-blue-dark);
 }
 
 section {
-    background: #fff;
-    border-radius: 10px;
-    margin-top: 25px;
-    box-shadow: 0 3px 8px rgba(44,45,56,0.08);
-    padding: 30px;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    margin-top: 32px;
+    box-shadow: 0 4px 16px rgba(35,97,169,0.07);
+    padding: 38px 28px;
+    transition: box-shadow var(--transition);
+}
+
+section:hover {
+    box-shadow: 0 8px 32px rgba(35,97,169,0.13);
 }
 
 h1, h2, h3 {
     margin-top: 0;
+    color: var(--primary-blue-dark);
 }
 
 .services-list {
     list-style-type: disc;
-    padding-left: 20px;
+    padding-left: 22px;
+    color: var(--primary-blue-dark);
 }
 
 form {
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 form label {
-    margin-top: 10px;
-    margin-bottom: 5px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    color: var(--primary-blue);
+    font-weight: 600;
 }
 
-form input, form textarea {
-    padding: 8px;
-    border: 1px solid #bdbdbd;
-    border-radius: 5px;
+form input,
+form textarea {
+    padding: 10px;
+    border: 1.5px solid var(--grey-dark);
+    border-radius: var(--border-radius);
     font-size: 1em;
-    margin-bottom: 10px;
-    resize: vertical;
+    background: var(--primary-blue-light);
+    color: var(--primary-blue-dark);
+    transition: border var(--transition);
+}
+
+form input:focus,
+form textarea:focus {
+    border: 1.5px solid var(--accent-blue);
+    outline: none;
+    background: var(--white);
 }
 
 form button {
-    background: #2b354a;
-    color: #fff;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
+    color: var(--white);
     border: none;
-    padding: 12px;
-    border-radius: 5px;
-    font-size: 1em;
+    padding: 13px 0;
+    border-radius: var(--border-radius);
+    font-size: 1.08em;
+    font-weight: 700;
     cursor: pointer;
-    margin-top: 10px;
-    transition: background 0.2s;
+    margin-top: 12px;
+    box-shadow: 0 2px 8px rgba(35,97,169,0.10);
+    transition: background var(--transition), color var(--transition), box-shadow var(--transition);
 }
 
 form button:hover {
-    background: #e9bc3f;
-    color: #2b354a;
+    background: linear-gradient(90deg, var(--accent-blue), var(--primary-blue));
+    color: var(--primary-blue-dark);
+    box-shadow: 0 4px 16px rgba(35,97,169,0.18);
 }
 
 #form-msg {
     margin-top: 10px;
-    color: #2b354a;
+    color: var(--primary-blue-dark);
     font-weight: bold;
 }
 
 footer {
-    background: #222;
-    color: #fff;
+    background: var(--primary-blue-dark);
+    color: var(--white);
     text-align: center;
-    padding: 18px 0;
+    padding: 20px 0;
     margin-top: 40px;
-    font-size: 0.9em;
+    font-size: 1em;
     letter-spacing: 1px;
+    box-shadow: 0 -2px 12px rgba(35,97,169,0.06);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+@media (max-width: 700px) {
+    header { padding: 32px 0 18px 0; }
+    section { padding: 24px 8px; }
+    .container { padding: 10px 0; }
+    nav ul { gap: 10px; }
 }
