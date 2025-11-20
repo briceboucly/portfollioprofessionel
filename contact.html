@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Brice Boucly</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Contact</h1>
+            <h2>Je suis à votre écoute pour vos réservations et demandes de services</h2>
+            <p>Envoyez-moi un message ou réservez directement via le formulaire ci-dessous.</p>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="portfolio.html">Accueil</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+    <section class="container">
+        <h3>Mes coordonnées</h3>
+        <ul class="services-list">
+            <li>Email : <a href="mailto:b.solutions@gmail.com">b.solutions@gmail.com</a></li>
+            <li>Téléphone : <a href="tel:0615641913">0615641913</a></li>
+        </ul>
+    </section>
+    <section class="container">
+        <h3>Formulaire de réservation / contact</h3>
+        <form id="reservationForm">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Téléphone :</label>
+            <input type="tel" id="phone" name="phone">
+            <label for="message">Votre demande :</label>
+            <textarea id="message" name="message" required placeholder="Indiquez votre demande de réservation, projet ou question"></textarea>
+            <button type="submit">Envoyer</button>
+            <p id="form-msg"></p>
+        </form>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Brice Boucly. Tous droits réservés.</p>
+        </div>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>
