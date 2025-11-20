@@ -5,6 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Brice Boucly</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles additionnels pour calendrier/modale, compatible avec la charte */
+        .calendar-container {
+            margin: 38px 0 0 0;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 16px rgba(35,97,169,0.07);
+            padding: 20px;
+            overflow-x: auto;
+        }
+        .calendar {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 0;
+            min-width: 420px;
+        }
+        .calendar th, .calendar td {
+            text-align: center;
+            padding: 12px 6px;
+            border-radius: var(--border-radius);
+        }
+        .calendar th {
+            color: var(--primary-blue);
+            font-weight: 600;
+            user-select: none;
+            background: var(--primary-blue-light);
+        }
+        .calendar td.available {
+            cursor: pointer;
+            color: var(--primary-blue-dark);
+            font-weight: 700;
+            background: var(--primary-blue-light);
+            transition: background var(--transition), color var(--transition);
+        }
+        .calendar td.available:hover {
+            background: var(--accent-blue);
+            color: var(--white);
+        }
+        .calendar td.unavailable {
+            color: var(--grey-dark);
+            background: transparent;
+        }
+        .calendar td {
+            min-width: 40px;
+            height: 45px;
+        }
+        /* Popup / modale */
+        .modal-bg {
+            position: fixed;
+            z-index: 200;
+            top: 0;left: 0;right: 0;bottom: 0;
+            background: rgba(35,97,169,0.18);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 32px rgba(35,97,169,0.12);
+            padding: 28px 24px;
+            text-align: center;
+            min-width: 260px;
+            max-width: 98vw;
+        }
+        .modal-content h4 {
+            margin-top: 0;
+            color: var(--primary-blue);
+        }
+        .slots-list {
+            list-style: none;
+            padding: 0;
+            margin: 14px 0 0 0;
+        }
+        .slots-list li {
+            padding: 8px 4px;
+            color: var(--primary-blue-dark);
+            border-bottom: 1px solid var(--primary-blue-light);
+        }
+        .close-modal {
+            margin-top: 18px;
+            background: linear-gradient(90deg,var(--primary-blue),var(--accent-blue));
+            color: var(--white);
+            border: none;
+            padding: 9px 28px;
+            border-radius: var(--border-radius);
+            font-size: 1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background var(--transition), color var(--transition);
+        }
+        .close-modal:hover {
+            background: linear-gradient(90deg,var(--accent-blue),var(--primary-blue));
+            color: var(--primary-blue-dark);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -29,6 +125,20 @@
         </ul>
     </section>
     <section class="container">
+        <h3>Exemple de calendrier de réservations</h3>
+        <div class="calendar-container">
+            <table class="calendar" id="calendar"></table>
+        </div>
+        <!-- Modale (pop up) : cachée par défaut -->
+        <div class="modal-bg" id="modal">
+            <div class="modal-content">
+                <h4 id="modal-day">Disponibilités</h4>
+                <ul class="slots-list" id="slots-list"></ul>
+                <button class="close-modal" id="closeModal">Fermer</button>
+            </div>
+        </div>
+    </section>
+    <section class="container">
         <h3>Formulaire de réservation / contact</h3>
         <form id="reservationForm">
             <label for="name">Nom :</label>
@@ -48,6 +158,7 @@
             <p>&copy; 2025 Brice Boucly. Tous droits réservés.</p>
         </div>
     </footer>
-    <script src="../js/script.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
