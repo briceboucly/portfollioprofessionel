@@ -193,24 +193,4 @@ footer {
     .container { padding: 10px 0; }
     nav ul { gap: 10px; }
 }
-.logo-top-left {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 80px;
-            height: auto;
-            z-index: 1000;
-        }
-        header .container {
-            padding-left: 110px; /* Décalage visuel du texte si logo ajouté */
-        }
-        @media (max-width: 600px) {
-            .logo-top-left {
-                width: 60px;
-                top: 10px;
-                left: 10px;
-            }
-            header .container {
-                padding-left: 75px;
-            }
-        }
+
