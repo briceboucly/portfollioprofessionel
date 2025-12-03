@@ -5,6 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - B-SOLUTIONS</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Style du menu déroulant */
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-btn {
+            background: none;
+            border: none;
+            color: inherit;
+            font: inherit;
+            cursor: pointer;
+            padding: 16px 10px;
+            font-weight: 600;
+            font-size: 1.1em;
+            border-radius: var(--border-radius);
+            transition: background var(--transition), color var(--transition);
+        }
+        .dropdown-btn.active,
+        .dropdown-btn:focus {
+            background: var(--accent-blue);
+            color: var(--primary-blue-dark);
+        }
+        .nav-dropdown-content {
+            display: none;
+            position: absolute;
+            left: 0; top: 100%;
+            min-width: 220px;
+            background: var(--white);
+            box-shadow: 0 6px 18px rgba(35,97,169,0.09);
+            z-index: 9999;
+            border-radius: var(--border-radius);
+            margin-top: 6px;
+        }
+        .nav-dropdown-content a {
+            display: block;
+            padding: 12px 18px;
+            color: var(--primary-blue-dark);
+            text-decoration: none;
+            transition: background var(--transition), color var(--transition);
+        }
+        .nav-dropdown-content a:hover {
+            background: var(--accent-blue);
+            color: var(--white);
+            border-radius: var(--border-radius);
+        }
+        .nav-dropdown:hover .nav-dropdown-content,
+        .nav-dropdown:focus-within .nav-dropdown-content {
+            display: block;
+        }
+        /* Bloc catégories de services */
+        .categories-bloc {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            margin-top: 40px;
+            margin-bottom: 24px;
+        }
+        .categories-card {
+            flex: 1 1 320px;
+            min-width: 250px;
+            max-width: 380px;
+            background: var(--primary-blue-light);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 16px rgba(35,97,169,0.08);
+            padding: 28px 20px;
+            text-align: center;
+            transition: box-shadow var(--transition), transform var(--transition);
+        }
+        .categories-card:hover {
+            box-shadow: 0 8px 32px rgba(35,97,169,0.15);
+            transform: translateY(-6px) scale(1.03);
+        }
+        .categories-card h4 {
+            margin: 0 0 12px 0;
+            color: var(--primary-blue);
+        }
+        .categories-card p {
+            color: var(--primary-blue-dark);
+            margin-bottom: 18px;
+        }
+        .categories-card a {
+            color: var(--white);
+            background: var(--accent-blue);
+            padding: 10px 18px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: background var(--transition), color var(--transition);
+            display: inline-block;
+        }
+        .categories-card a:hover {
+            background: var(--primary-blue-dark);
+            color: var(--accent-blue);
+        }
+        @media (max-width: 800px) {
+            .categories-bloc { flex-direction: column; gap: 18px;}
+            .categories-card { max-width: unset;}
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,44 +118,90 @@
     <nav>
         <ul>
             <li><a href="index.html">Accueil</a></li>
-            <li><a href="services.html" class="active">Services</a></li>
+            <li class="nav-dropdown">
+                <button class="dropdown-btn active" tabindex="0">Services ▾</button>
+                <div class="nav-dropdown-content">
+                    <a href="categorie-commercial.html">Conseil commercial</a>
+                    <a href="categorie-equipe.html">Gestion d'équipes</a>
+                    <a href="categorie-hotellerie.html">Hôtellerie & restauration</a>
+                    <a href="categorie-livraison.html">Livraison</a>
+                    <a href="categorie-evenement.html">Organisation d'événements</a>
+                    <a href="categorie-logistique.html">Logistique & gestion de projets</a>
+                    <a href="categorie-sur-mesure.html">Prestations sur-mesure</a>
+                    <a href="categorie-bois.html">Coupe du bois</a>
+                </div>
+            </li>
             <li><a href="contact.html">Contacts</a></li>
             <li><a href="avis-clients.html">Avis-clients</a></li>
         </ul>
     </nav>
     <section class="container">
         <h3>Nos Services en Détail</h3>
+        <div class="categories-bloc">
+            <div class="categories-card">
+                <h4>Conseil et accompagnement commercial</h4>
+                <p>Stratégies personnalisées pour accroître vos ventes, analyse de marché et formation des équipes commerciales.</p>
+                <a href="categorie-commercial.html">Voir la catégorie</a>
+            </div>
+            <div class="categories-card">
+                <h4>Gestion d'équipes et optimisation des ventes</h4>
+                <p>Mise en place d'objectifs, motivation des équipes, suivi de performance, techniques de vente avancées.</p>
+                <a href="categorie-equipe.html">Voir la catégorie</a>
+            </div>
+            <div class="categories-card">
+                <h4>Services en hôtellerie et restauration</h4>
+                <p>Gestion opérationnelle, recrutement, formation, amélioration de la satisfaction client, optimisation des achats.</p>
+                <a href="categorie-hotellerie.html">Voir la catégorie</a>
+            </div>
+            <div class="categories-card">
+                <h4>Livraison de marchandises et de nourritures</h4>
+                <p>Organisation logistique, optimisation des tournées, respect des délais et des normes de sécurité, traçabilité.</p>
+                <a href="categorie-livraison.html">Voir la catégorie</a>
+            </div>
+            <div class="categories-card">
+                <h4>Organisation d'événements</h4>
+                <p>Séminaires, soirées, team-building, événements professionnels et privés, accompagnement sur-mesure.</p>
+                <a href="categorie-evenement.html">Voir la catégorie</a>
+            </div>
+            <div class="categories-card">
+                <h4>Logistique et gestion de projets</h4>
+                <p>Gestion complète de projet : planification, coordination, suivi budgétaire, respect des délais.</p>
+                <a href="categorie-logistique.html">Voir la catégorie</a>
+            </div>
+            <div class="categories-card">
+                <h4>Autres prestations sur-mesure</h4>
+                <p>Services personnalisés, gestion ponctuelle ou à long terme, solutions innovantes et flexibles.</p>
+                <a href="categorie-sur-mesure.html">Voir la catégorie</a>
+            </div>
+            <div class="categories-card">
+                <h4>Coupe du bois</h4>
+                <p>Service professionnel de coupe de bois : abattage, débitage et préparation. Respect de l'environnement.</p>
+                <a href="categorie-bois.html">Voir la catégorie</a>
+            </div>
+        </div>
         <ul class="services-list">
-            <li>
-                <strong>Conseil et accompagnement commercial</strong><br>
+            <li><strong>Conseil et accompagnement commercial</strong><br>
                 <em>Stratégies personnalisées pour accroître vos ventes, analyse de marché et formation des équipes commerciales.</em>
             </li>
-            <li>
-                <strong>Gestion d'équipes et optimisation des ventes</strong><br>
+            <li><strong>Gestion d'équipes et optimisation des ventes</strong><br>
                 <em>Mise en place d'objectifs, motivation des équipes, suivi de performance, techniques de vente avancées pour maximiser votre chiffre d'affaires.</em>
             </li>
-            <li>
-                <strong>Services en hôtellerie et restauration</strong><br>
+            <li><strong>Services en hôtellerie et restauration</strong><br>
                 <em>Gestion opérationnelle, recrutement, formation des personnels, amélioration de la satisfaction client, optimisation des achats et des coûts.</em>
             </li>
-            <li>
-                <strong>Livraison de marchandises et de nourritures</strong><br>
+            <li><strong>Livraison de marchandises et de nourritures</strong><br>
                 <em>Organisation de la logistique, optimisation des tournées, respect des délais et des normes de sécurité, traçabilité complète des livraisons.</em>
             </li>
-            <li>
-                <strong>Organisation d'événements</strong><br>
+            <li><strong>Organisation d'événements</strong><br>
                 <em>De la conception à la réalisation : séminaires, soirées, team-building, événements professionnels et privés. Accompagnement sur-mesure selon vos besoins.</em>
             </li>
-            <li>
-                <strong>Logistique et gestion de projets</strong><br>
+            <li><strong>Logistique et gestion de projets</strong><br>
                 <em>Gestion complète de projet : planification, coordination des intervenants, suivi budgétaire, respect des délais et gestion des imprévus.</em>
             </li>
-            <li>
-                <strong>Autres prestations sur-mesure</strong><br>
+            <li><strong>Autres prestations sur-mesure</strong><br>
                 <em>Adaptation à vos besoins spécifiques : services personnalisés, gestion ponctuelle ou à long terme, solutions innovantes et flexibles.</em>
             </li>
-            <li>
-                <strong>Coupe du bois</strong><br>
+            <li><strong>Coupe du bois</strong><br>
                 <em>Service professionnel de coupe de bois : abattage, débitage et préparation pour usage personnel ou commercial. Respect des règles de sécurité et de l'environnement.</em>
             </li>
         </ul>
