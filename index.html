@@ -5,6 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B-SOLUTIONS</title>
      <link rel="stylesheet" href="style.css">
+     <style>
+        /* Ajout de la mise en page côte à côte pour les deux blocs */
+        .blocs-cote-cote {
+            display: flex;
+            gap: 32px;
+            justify-content: space-between;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .bloc-single {
+            flex: 1 1 320px;
+            min-width: 280px;
+            background: #f7f7f7;
+            border-radius: 10px;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+        }
+        .diplomes-list, .materiel-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .diplomes-list li, .materiel-list li {
+            margin-bottom: 0.7em;
+            font-size: 1.07em;
+        }
+        .materiel-list { display: flex; flex-direction: column; gap: 10px; }
+        .mat-hover { cursor: pointer; transition: color 0.25s;}
+        .mat-hover:hover { color: #0077ff; text-decoration: underline;}
+        /* Pour afficher l’illustration à côté de la liste dans le bloc matériel */
+        #mat-illustration {
+            display: none;
+            position: absolute;
+            background: #fff;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.09);
+            border-radius: 8px;
+            z-index: 99;
+        }
+        @media (max-width: 900px) {
+            .blocs-cote-cote { flex-direction: column; gap: 18px; }
+            .bloc-single { min-width: unset; }
+        }
+    </style>
 </head>
 <body>
     <header>
