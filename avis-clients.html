@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avis Clients - B-SOLUTIONS</title>
+    <link rel="stylesheet" href="b-styles.css">
+    <style>
+        /* Onglet navigation */
+        .tabs {
+            display: flex;
+            gap: 12px;
+            background: var(--grey);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 18px;
+        }
+        .tab-button {
+            flex: 1;
+            padding: 14px;
+            cursor: pointer;
+            border: none;
+            border-bottom: 2px solid transparent;
+            background: var(--white);
+            color: var(--primary-blue-dark);
+            font-weight: 600;
+            font-size: 1.05em;
+            transition: background var(--transition), color var(--transition), border-bottom var(--transition);
+        }
+        .tab-button.active {
+            color: var(--accent-blue);
+            background: var(--primary-blue-light);
+            border-bottom: 2px solid var(--accent-blue);
+        }
+        /* Section avis */
+        .avis-section {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 16px rgba(35,97,169,0.09);
+            padding: 32px 20px;
+            margin-bottom: 20px;
+        }
+        .avis-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .avis-item {
+            border-bottom: 1px solid var(--grey-dark);
+            padding: 16px 0 10px 0;
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .avis-nom {
+            font-weight: bold;
+            color: var(--primary-blue-dark);
+            font-size: 1.07em;
+        }
+        .avis-texte {
+            font-size: 1em;
+            color: var(--primary-blue-dark);
+        }
+        .avis-stars {
+            margin: 6px 0 2px 0;
+            font-size: 1.2em;
+            color: var(--accent-blue);
+        }
+        /* Ajout d'avis */
+        .avis-form {
+            margin-top: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .avis-form input, .avis-form textarea {
+            padding: 9px;
+            border: 1px solid var(--grey-dark);
+            border-radius: var(--border-radius);
+            font-size: 1em;
+            background: var(--primary-blue-light);
+            color: var(--primary-blue-dark);
+        }
+        .avis-form label {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 4px;
+        }
+        .avis-form button {
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
+            color: var(--white);
+            border: none;
+            padding: 11px 0;
+            border-radius: var(--border-radius);
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 6px;
+            box-shadow: 0 2px 8px rgba(35,97,169,0.10);
+            transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+        }
+        .avis-form button:hover {
+            background: linear-gradient(90deg, var(--accent-blue), var(--primary-blue));
+            color: var(--primary-blue-dark);
+            box-shadow: 0 4px 16px rgba(35,97,169,0.18);
+        }
+        .avis-stars-select {
+            display: flex;
+            gap: 4px;
+            font-size: 1.2em;
+            margin: 3px 0 7px 0;
+        }
+        .avis-stars-select span {
+            cursor: pointer;
+            color: var(--grey-dark);
+            transition: color var(--transition);
+        }
+        .avis-stars-select span.selected,
+        .avis-stars-select span.active {
+            color: var(--accent-blue);
+        }
+        @media (max-width: 650px) {
+            .avis-section { padding: 11px 6px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Avis Clients</h1>
+        <!-- Onglet navigation (pour extension future: autres catégories) -->
+        <nav class="tabs">
+            <button class="tab-button active" id="tab-avis" onclick="showTab('avis')">Avis</button>
+            <!-- Possible ajout d'autres onglets -->
+        </nav>
+        <section class="avis-section" id="avis-tab">
+            <h3>Commentaires et notes des clients</h3>
+            <ul class="avis-list" id="avis-list">
+                <!-- Exemple d'avis -->
+                <li class="avis-item">
+                    <div class="avis-nom">Julien B.</div>
+                    <div class="avis-stars">★★★★★</div>
+                    <div class="avis-texte">Service rapide et professionnel, je recommande vivement !</div>
+                </li>
+                <li class="avis-item">
+                    <div class="avis-nom">Mélanie R.</div>
+                    <div class="avis-stars">★★★★☆</div>
+                    <div class="avis-texte">Personnel très agréable et efficace. Seul petit point à améliorer : la ponctualité.</div>
+                </li>
+                <li class="avis-item">
+                    <div class="avis-nom">Ali D.</div>
+                    <div class="avis-stars">★★★★★</div>
+                    <div class="avis-texte">Excellent travail. Merci Brice pour votre sérieux !</div>
+                </li>
+            </ul>
+            <form class="avis-form" id="avis-form">
+                <label for="avis-nom">Votre nom :</label>
+                <input type="text" id="avis-nom" name="avis-nom" required maxlength="40" placeholder="Ex: Laura P.">
+                <label for="avis-commentaire">Votre commentaire :</label>
+                <textarea id="avis-commentaire" name="avis-commentaire" required maxlength="300" placeholder="Votre avis..."></textarea>
+                <label>Votre note :</label>
+                <div class="avis-stars-select" id="avis-stars-select">
+                    <!-- JS générera les étoiles -->
+                </div>
+                <button type="submit">Envoyer mon avis</button>
+                <div id="avis-msg"></div>
+            </form>
+        </section>
+    </div>
+    <script>
+    // Onglet unique pour l'instant (extension facile)
+    function showTab(tab) {
+        document.getElementById('avis-tab').style.display = tab === 'avis' ? 'block' : 'none';
+        document.getElementById('tab-avis').classList.toggle('active', tab === 'avis');
+    }
+    // Initialisation JS étoiles de notation
+    const starsContainer = document.getElementById('avis-stars-select');
+    let currentRating = 5;
+    for (let i = 1; i <= 5; i++) {
+        const star = document.createElement('span');
+        star.innerHTML = '★';
+        star.classList.add(i <= currentRating ? 'selected' : '');
+        star.setAttribute('data-value', i);
+        star.addEventListener('mouseenter', function() {
+            updateStars(i);
+        });
+        star.addEventListener('mouseleave', function() {
+            updateStars(currentRating);
+        });
+        star.addEventListener('click', function() {
+            currentRating = i;
+            updateStars(currentRating);
+        });
+        starsContainer.appendChild(star);
+    }
+    function updateStars(rating) {
+        Array.from(starsContainer.children).forEach((star, idx) => {
+            star.classList.toggle('selected', idx < rating);
+            star.classList.toggle('active', idx < rating);
+        });
+    }
+    // Gestion du formulaire d'avis
+    document.getElementById('avis-form').addEventListener('submit', function(event){
+        event.preventDefault();
+        const nom = document.getElementById('avis-nom').value.trim();
+        const texte = document.getElementById('avis-commentaire').value.trim();
+        const stars = currentRating;
+        if (nom.length < 2 || texte.length < 2) {
+            document.getElementById('avis-msg').innerText = "Veuillez renseigner un nom et un avis valides.";
+            return;
+        }
+        // Création du nouvel avis
+        const avisList = document.getElementById('avis-list');
+        const li = document.createElement('li');
+        li.className = 'avis-item';
+        li.innerHTML = `<div class="avis-nom">${nom}</div>
+                        <div class="avis-stars">${'★'.repeat(stars)+ (stars < 5 ? '☆'.repeat(5-stars) : '')}</div>
+                        <div class="avis-texte">${texte}</div>`;
+        avisList.appendChild(li);
+        // Reset form
+        document.getElementById('avis-form').reset();
+        currentRating = 5;
+        updateStars(currentRating);
+        document.getElementById('avis-msg').innerText = "Merci pour votre avis !";
+        setTimeout(()=>{document.getElementById('avis-msg').innerText = "";}, 2500);
+    });
+    // Onglet visible par défaut
+    showTab('avis');
+    </script>
+</body>
+</html>
