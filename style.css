@@ -57,6 +57,12 @@ header p {
     margin-right: auto;
 }
 
+section {
+    max-width: 880px;
+    margin: 32px auto 0 auto; /* top 32px, left/right auto */
+}
+
+
 nav {
     background: var(--primary-blue-dark);
     box-shadow: 0 2px 8px rgba(35,97,169,0.05);
