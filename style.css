@@ -53,8 +53,8 @@ header p {
 .container {
     width: 92%;
     max-width: 880px;
-    margin: 0 auto;
-    padding: 22px 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 nav {
