@@ -413,10 +413,7 @@ gap: 8px;
 .mat-img-preview {
 width: 100px;
 height: auto;
-display: none;
+display: block;
 border-radius: 8px;
 box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-.mat-hover:hover .mat-img-preview {
-display: block;
 }
