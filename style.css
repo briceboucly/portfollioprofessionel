@@ -411,7 +411,7 @@ align-items: center;
 gap: 8px;
 }
 .mat-img-preview {
-width: 100px;
+width: 150px;
 height: auto;
 display: block;
 border-radius: 8px;
