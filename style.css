@@ -469,4 +469,10 @@ border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
 }
-
+.description {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 0.95em;
+    color: #333;
+}
