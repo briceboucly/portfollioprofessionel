@@ -26,7 +26,7 @@ body {
 header {
     background: linear-gradient(120deg, var(--primary-blue), var(--primary-blue-dark));
     color: var(--white);
-    padding: 0px 0 28px 0;
+    padding: 48px 0 28px 0;
     text-align: center;
     box-shadow: 0 6px 24px rgba(35,97,169,0.13);
 }
