@@ -476,3 +476,13 @@ border-radius: 5px;
     font-size: 0.95em;
     color: #333;
 }
+.video-top-right {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    width: 260px;      /* ajuste la taille selon ton design */
+    height: auto;
+    border-radius: 8px;
+    z-index: 999;      /* pour passer au-dessus du reste */
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
