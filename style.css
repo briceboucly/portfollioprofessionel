@@ -451,3 +451,22 @@ margin-top: 10px;
 color: white;
 border-radius: 5px;
 }
+
+.categories-card .legend {
+    font-size: 0.9em;
+    color: #f0f0f0;
+    margin-top: 8px;
+    opacity: 0.9;
+}
+
+.btn-category {
+    display: inline-block;
+    padding: 8px 14px;
+    background-color: #ffffff;
+    color: #000;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
