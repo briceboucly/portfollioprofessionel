@@ -58,6 +58,11 @@ header p {
     margin-right: auto;
 }
 
+header .container {
+    padding-left: 0; /* Plus aucun décalage */
+    text-align: center; /* S'assure que tout est bien centré */
+}
+
 section {
     max-width: 880px;
     margin: 32px auto 0 auto; /* top 32px, left/right auto */
