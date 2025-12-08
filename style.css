@@ -209,8 +209,18 @@ footer {
             z-index: 1000;
         }
         header .container {
-            padding-left: 110px; /* Décalage visuel du texte si logo ajouté */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centre horizontalement */
+    text-align: center;
         }
+    @media (max-width: 600px) {
+    header .container {
+        padding-left: 0; /* ou 10px max si tu veux */
+    }
+}
+
+
         @media (max-width: 600px) {
             .logo-top-left {
                 width: 60px;
