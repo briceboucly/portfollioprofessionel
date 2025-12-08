@@ -486,3 +486,8 @@ border-radius: 5px;
     z-index: 999;      /* pour passer au-dessus du reste */
     box-shadow: 0 4px 14px rgba(0,0,0,0.25);
 }
+@media (max-width: 768px) {
+    .video-top-right {
+        display: none;
+    }
+}
