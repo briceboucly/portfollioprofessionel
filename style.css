@@ -501,13 +501,18 @@ header {
 }
 
 /* --- Fixation de la barre de navigation --- */
-nav {
+   nav {
     position: fixed;
-    top: 120px; /* Ajuste selon la hauteur réelle du header */
+    top: 120px; /* ou ta valeur */
     left: 0;
     width: 100%;
-    z-index: 999;
+    z-index: 4000; /* au-dessus de la vidéo */
 }
+nav ul li a {
+    position: relative;
+    z-index: 4001; /* plus haut encore */
+}
+
 
 /* --- Décalage du contenu pour ne pas passer derrière --- */
 body {
