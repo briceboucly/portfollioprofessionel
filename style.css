@@ -491,3 +491,31 @@ border-radius: 5px;
         display: none;
     }
 }
+.logo-top-left {
+    position: fixed;     /* changé de absolute → fixed */
+    top: 20px;
+    left: 20px;
+    width: 160px;
+    height: auto;
+    z-index: 2000;       /* au-dessus du header */
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1800;      /* sous le logo, au-dessus du nav */
+}
+body {
+    padding-top: 180px;  /* Ajuste selon la hauteur réelle du header */
+}
+nav {
+    position: fixed;
+    top: 120px;       /* dépend de la hauteur du header */
+    left: 0;
+    width: 100%;
+    z-index: 1700;
+}
+section {
+    margin-top: 260px; /* header + nav (à ajuster selon la taille réelle) */
+}
