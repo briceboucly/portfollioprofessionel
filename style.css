@@ -519,3 +519,41 @@ nav {
 section {
     margin-top: 260px; /* header + nav (à ajuster selon la taille réelle) */
 }
+/* Boutons fixes comme la vidéo */
+.btn-fixe {
+    position: fixed;
+    right: 16px;
+    padding: 12px 20px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
+    color: white;
+    font-weight: 700;
+    font-size: 1.05em;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    z-index: 2000;
+    transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+
+/* Effet hover */
+.btn-fixe:hover {
+    background: linear-gradient(90deg, var(--accent-blue), var(--primary-blue));
+    color: var(--primary-blue-dark);
+    transform: translateY(-4px);
+}
+
+/* Position des boutons fixes */
+.btn-fixe-contact {
+    bottom: 16px;
+}
+
+.btn-fixe-services {
+    bottom: 70px; /* au-dessus du bouton Contact */
+}
+
+/* Responsive : cacher les boutons sur petit écran */
+@media (max-width: 768px) {
+    .btn-fixe {
+        display: none;
+    }
+}
