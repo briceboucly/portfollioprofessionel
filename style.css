@@ -24,7 +24,6 @@ body {
 }
 
 header {
-    position: fixed;
     background: linear-gradient(120deg, var(--primary-blue), var(--primary-blue-dark));
     color: var(--white);
     padding: 48px 0 28px 0;
@@ -33,7 +32,6 @@ header {
 }
 
 header h1 {
-    position: fixed;
     font-size: 2.5rem;
     margin-bottom: 0.2em;
     letter-spacing: 1px;
@@ -41,7 +39,6 @@ header h1 {
 }
 
 header h2 {
-    position: fixed;
     font-size: 1.3rem;
     font-weight: 400;
     margin: 0.2em 0 1em 0;
@@ -68,13 +65,11 @@ section {
 
 
 nav {
-    position: fixed;
     background: var(--primary-blue-dark);
     box-shadow: 0 2px 8px rgba(35,97,169,0.05);
 }
 
 nav ul {
-    position: fixed;
     list-style: none;
     margin: 0;
     padding: 0;
