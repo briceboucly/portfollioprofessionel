@@ -506,11 +506,11 @@ header {
     top: 120px; /* ou ta valeur */
     left: 0;
     width: 100%;
-    z-index: 4000; /* au-dessus de la vidéo */
+    z-index: 2000; /* au-dessus de la vidéo */
 }
 nav ul li a {
     position: relative;
-    z-index: 4001; /* plus haut encore */
+    z-index: 2001; /* plus haut encore */
 }
 
 
