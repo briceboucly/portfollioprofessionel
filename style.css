@@ -605,3 +605,117 @@ header {
 body {
     padding-top: 250px; /* adapte si besoin selon la hauteur finale */
 }
+:root {
+    /* hauteur totale du header fixe (texte + espace + nav) — ajuste si besoin */
+    --header-height: 220px;
+    --nav-height: 56px; /* hauteur de la barre bleu foncé */
+}
+
+/* Header fixe qui contient tout (texte + nav + boutons) */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background: linear-gradient(120deg, var(--primary-blue), var(--primary-blue-dark));
+    color: var(--white);
+    z-index: 1800;
+    box-shadow: 0 6px 24px rgba(35,97,169,0.13);
+    overflow: visible; /* pour que les boutons restent visibles */
+}
+
+/* Garde ton container centré mais limite sa hauteur visible */
+header .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 20px 20px 0 20px;
+}
+
+/* espace interne sous le texte pour faire de la place à la nav en bas */
+.header-inner {
+    padding-top: 24px;        /* espace au-dessus des titres */
+    padding-bottom: calc(var(--nav-height) + 12px); /* fait de la place pour la nav */
+    text-align: center;
+}
+
+/* Nav collée en bas du header */
+.nav-in-header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;                     /* colle la nav au bas du header */
+    height: var(--nav-height);
+    background: var(--primary-blue-dark);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.06);
+    z-index: 1799;
+}
+
+/* style habituel de la nav (conserve ton style existant) */
+.nav-in-header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    align-items: center;
+    height: 100%;
+}
+.nav-in-header ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05em;
+    padding: 10px 12px;
+    border-radius: var(--border-radius);
+    transition: background var(--transition), color var(--transition);
+    display: inline-block;
+}
+.nav-in-header ul li a:hover,
+.nav-in-header ul li a:focus,
+.nav-in-header ul li a.active {
+    background: var(--accent-blue);
+    color: var(--primary-blue-dark);
+}
+
+/* Boutons positionnés À L'INTÉRIEUR du header (ils "descendent" avec la nav) */
+.btn-fixe {
+    position: absolute;
+    right: 16px;
+    z-index: 2000;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
+    color: white;
+    font-weight: 700;
+    font-size: 1.02em;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    transition: transform var(--transition), background var(--transition);
+}
+
+/* place les boutons verticalement juste au-dessus / dans la zone de la nav */
+.btn-fixe-services {
+    top: calc(var(--header-height) - var(--nav-height) - 60px); /* ajuste pour descendre */
+}
+.btn-fixe-contact {
+    top: calc(var(--header-height) - var(--nav-height) - 12px);  /* plus bas, proche de la nav */
+}
+
+.btn-fixe:hover { transform: translateY(-3px); }
+
+/* CORRIGE le contenu de la page pour qu'il ne soit pas caché par le header fixe */
+body {
+    padding-top: var(--header-height);
+}
+
+/* responsive — réduit les hauteurs sur mobile */
+@media (max-width: 700px) {
+    :root {
+        --header-height: 160px;
+        --nav-height: 48px;
+    }
+    .btn-fixe { display: none; } /* option : cacher les boutons sur mobile */
+    header .container { padding-left: 75px; } /* conserve ton réglage mobile existant */
+}
