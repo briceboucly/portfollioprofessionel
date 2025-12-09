@@ -483,7 +483,7 @@ border-radius: 5px;
     width: 200px;      /* ajuste la taille selon ton design */
     height: auto;
     border-radius: 8px;
-    z-index: 2000;      /* pour passer au-dessus du reste */
+    z-index: 3000;      /* pour passer au-dessus du reste */
     box-shadow: 0 4px 14px rgba(0,0,0,0.25);
 }
 @media (max-width: 768px) {
@@ -497,7 +497,7 @@ border-radius: 5px;
     left: 20px;
     width: 160px;
     height: auto;
-    z-index: 2000;       /* au-dessus du header */
+    z-index: 3000;       /* au-dessus du header */
 }
 header {
     position: fixed;
@@ -514,7 +514,7 @@ nav {
     top: 120px;       /* dépend de la hauteur du header */
     left: 0;
     width: 100%;
-    z-index: 1700;
+    z-index: 1900;
 }
 section {
     margin-top: 260px; /* header + nav (à ajuster selon la taille réelle) */
