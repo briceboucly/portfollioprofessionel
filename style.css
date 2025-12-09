@@ -522,6 +522,7 @@ section {
 /* Boutons fixes comme la vidéo */
 .btn-fixe {
     position: fixed;
+    top: 130px;   /* ↓ position verticale MAINTENANT AU LIEU DE bottom */
     right: 16px;
     padding: 12px 20px;
     background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
@@ -548,6 +549,7 @@ section {
 }
 
 .btn-fixe-services {
+    top: 180px;
     bottom: 70px; /* au-dessus du bouton Contact */
 }
 
@@ -556,4 +558,25 @@ section {
     .btn-fixe {
         display: none;
     }
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 70px; /* ↓↓ descend tout le contenu ↓↓ */
+    padding-bottom: 40px;
+    z-index: 1800;
+}
+
+.header-inner {
+    margin-top: 50px; /* encore plus d’espace sous le logo */
+}
+
+.nav-in-header {
+    margin-top: 28px; /* ↓ descend la barre de navigation ↓ */
+}
+
+.nav-in-header ul li a {
+    padding: 12px 10px; /* garde les boutons compacts */
 }
