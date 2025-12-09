@@ -491,3 +491,35 @@ border-radius: 5px;
         display: none;
     }
 }
+/* --- Fixation du header --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* --- Fixation de la barre de navigation --- */
+nav {
+    position: fixed;
+    top: 120px; /* Ajuste selon la hauteur réelle du header */
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+/* --- Décalage du contenu pour ne pas passer derrière --- */
+body {
+    padding-top: 200px; /* Header + Nav */
+}
+
+/* Option mobile */
+@media (max-width: 700px) {
+    nav {
+        top: 100px;
+    }
+    body {
+        padding-top: 170px;
+    }
+}
