@@ -580,3 +580,28 @@ header {
 .nav-in-header ul li a {
     padding: 12px 10px; /* garde les boutons compacts */
 }
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-top: 70px;
+    padding-bottom: 0;
+    z-index: 1800;
+}
+
+.header-inner {
+    padding-bottom: 40px; /* ↓ Ajoute un espace sous le texte */
+}
+
+.nav-in-header {
+    background: var(--primary-blue-dark);
+    width: 100%;
+    padding: 14px 0; /* hauteur de la barre bleu foncé */
+    box-shadow: 0 2px 8px rgba(35,97,169,0.05);
+    
+    /* ↓ Cette ligne descend la nav JUSTE sous header-inner ↓ */
+    margin-top: 0px;
+}
+body {
+    padding-top: 250px; /* adapte si besoin selon la hauteur finale */
+}
